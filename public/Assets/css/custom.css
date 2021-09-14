@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'made_evolve_sansregular';
+    src: url('../fonts/made_evolve_sansregular/made_evolve_sans_regular_personal_use-webfont.woff2') format('woff2'),
+    url('../fonts/made_evolve_sansregular/made_evolve_sans_regular_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'made_evolve_sansthin';
+    src: url('../fonts/made_evolve_sansregular/made_evolve_sans_thin_personal_use-webfont.woff2') format('woff2'),
+    url('../fonts/made_evolve_sansregular/made_evolve_sans_thin_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    font-family: made_evolve_sansthin;
+}
+
+.container {
+    font-family: made_evolve_sansthin;
+}
+
+p, h1, h2, h3, h4, h5, h6, .btn {
+    font-family: made_evolve_sansregular;
+}
+
+.button {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 8px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.copyright {
+    margin-top: 100px;
+}
+
+.url{
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    font-family: made_evolve_sansthin;
+}
+
+.url:hover{
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    font-family: made_evolve_sansthin;
+}

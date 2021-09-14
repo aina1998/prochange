@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des Clients{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h1 class="text-center"><i class="fad fa-id-card"></i><br>Listes des clients</h1>
+        <p class="text-center text-black-50">Compte de <span class="text-success text-break">Aina Fenomanitra</span></p>
+        <div class="text-center">
+            <a href="{{ path("guichet") }}" class="btn btn-outline-primary"><i class="fad fa-home-alt"></i> Tableau de bord</a>
+            <a href="{{ path("buy") }}" class="btn btn-outline-dark"><i class="fad fa-money-check-alt"></i> Listes des achats</a>
+            <a href="{{ path("sales") }}" class="btn btn-outline-dark"><i class="fad fa-money-bill-alt"></i> Listes des ventes</a>
+            <a href="#" class="btn btn-outline-danger"><i class="fad fa-sign-out-alt"></i> Déconnexion</a>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-lg-5">
+        <div class="float-end mb-3">
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un client</a>
+                <a href="#" class="btn btn-success"><i class="fad fa-list-alt"></i> Exporter la liste</a>
+            </div>
+        </div>
+
+            <table class="table table-bordered mt-5">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date d'enregistrement</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Type de document</th>
+                    <th scope="col">Numero du document</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>12/11/1998</td>
+                    <td>RAMAHERISON</td>
+                    <td>Aina Fenomanitra</td>
+                    <td>Madagascar</td>
+                    <td>C.I.N</td>
+                    <td>101 211 240 057</td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
+                            <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>12/11/1998</td>
+                    <td>RAMAHERISON</td>
+                    <td>Aina Fenomanitra</td>
+                    <td>Madagascar</td>
+                    <td>C.I.N</td>
+                    <td>101 211 240 057</td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
+                            <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>12/11/1998</td>
+                    <td>RAMAHERISON</td>
+                    <td>Aina Fenomanitra</td>
+                    <td>Madagascar</td>
+                    <td>C.I.N</td>
+                    <td>101 211 240 057</td>
+                    <td class="text-center">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
+                            <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+
+{% endblock %}

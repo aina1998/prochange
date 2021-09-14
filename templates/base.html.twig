@@ -2,18 +2,34 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+        <title>{% block title %}Tableau de bord{% endblock %} - Prochange Madagascar</title>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+        <link rel="stylesheet" href="{{ asset("Assets/css/bootstrap.css") }}">
+        <link rel="stylesheet" href="{{ asset("Assets/css/custom.css") }}">
+        <link rel="stylesheet" href="{{ asset('Assets/css/fontawesome-free/css/all.css') }}">
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        <footer class="text-center copyright">
+            <hr class="bg-opacity-50">
+            <p>Immeuble Ririraz City Center - Box 101 - Lot SIAH 33 Analakely ,101, ANTANANARIVO <br>
+                +261 20 22 255 65 <br>
+                <b>NIF :</b> 4004049444 – <b>STAT :</b> 66123 11 2020 0 10549
+            </p>
+
+            <p>Copyright &copy; Prochange Madagascar 2021. créer par <a href="#" class="url">AinaDev Project</a>.</p>
+        </footer>
+
+        <script type="text/javascript" src="{{ asset("Assets/js/bootstrap.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("Assets/js/jquery.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("Assets/js/jquery.slim.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("Assets/js/popper.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("Assets/js/jquery.easing.min.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("Assets/js/bootstrap.bundle.min.js") }}"></script>
     </body>
 </html>
