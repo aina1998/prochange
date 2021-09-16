@@ -1,0 +1,24 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Type de document{% endblock %}
+
+{% block body %}
+
+    <div id="layoutSidenav_content" class="mt-5">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-black-50"><i class="fad fa-passport"></i> TYPE DE DOCUMENT</h3>
+                    <a href="{{ path("type-document") }}" class="btn btn-dark">< Retour à la liste</a>
+                </div>
+                <div class="col-md-6 mt-5">
+                    {{ form_start(FormTypeDocument) }}
+                    {{ form_row(FormTypeDocument.TypeDocumentValue) }}
+                    <button type="submit" class="btn btn-primary"><i class="fad fa-check"></i> Enregistrer</button>
+                    {{ form_end(FormTypeDocument) }}
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

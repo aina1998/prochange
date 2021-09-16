@@ -7,9 +7,12 @@
     <div id="layoutSidenav_content" class="mt-5">
         <main>
             <div class="container-fluid px-4">
+
+                {% include 'Partials/Flash.html.twig' %}
+
                 <div class="d-flex justify-content-between">
                     <h3 class="text-black-50"><i class="fad fa-passport"></i> TYPE DE DOCUMENT</h3>
-                    <a href="#" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un type de document</a>
+                    <a href="{{ path("add-type-document") }}" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un type de document</a>
                 </div>
 
                 <table class="table table-bordered mt-5">
@@ -20,23 +23,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                    </tr>
+                    {% for listTypeDocument in listTypeDocuments %}
+                        <tr>
+                            <th scope="row">{{ listTypeDocument.id }}</th>
+                            <td>{{ listTypeDocument.TypeDocumentValue }}</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
                 <div class="float-end">
                     <div class="btn-group">
-                        <a href="#" class="btn btn-success"><i class="fad fa-list-alt"></i> Exporter la liste</a>
+                        <a href="{{ path('print-type-document') }}" target="_blank" class="btn btn-success"><i class="fad fa-print"></i> Imprimer la liste</a>
                         <a href="#" class="btn btn-danger"><i class="fad fa-trash-alt"></i> Supprimer tout</a>
                     </div>
                 </div>

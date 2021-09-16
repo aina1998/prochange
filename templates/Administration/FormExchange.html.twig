@@ -1,0 +1,24 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Cours de change{% endblock %}
+
+{% block body %}
+
+    <div id="layoutSidenav_content" class="mt-5">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-black-50"><i class="fad fa-wallet"></i> COURS DE CHANGE</h3>
+                    <a href="{{ path("exchange") }}" class="btn btn-dark">< Retour à la liste</a>
+                </div>
+                <div class="col-md-6 mt-5">
+                    {{ form_start(FormExchange) }}
+                    {{ form_row(FormExchange.ExchangeValue) }}
+                    <button type="submit" class="btn btn-primary"><i class="fad fa-check"></i> Enregistrer</button>
+                    {{ form_end(FormExchange) }}
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

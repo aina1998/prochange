@@ -1,0 +1,24 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Motif de voyage{% endblock %}
+
+{% block body %}
+
+    <div id="layoutSidenav_content" class="mt-5">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-black-50"><i class="fad fa-truck-moving"></i> MOTIF DE VOYAGE</h3>
+                    <a href="{{ path("motif-voyage") }}" class="btn btn-dark">< Retour à la liste</a>
+                </div>
+                <div class="col-md-6 mt-5">
+                    {{ form_start(FormMotifVoyage) }}
+                    {{ form_row(FormMotifVoyage.MotifVoyageValue) }}
+                    <button type="submit" class="btn btn-primary"><i class="fad fa-check"></i> Enregistrer</button>
+                    {{ form_end(FormMotifVoyage) }}
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}

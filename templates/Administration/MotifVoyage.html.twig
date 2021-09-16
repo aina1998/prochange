@@ -7,9 +7,12 @@
     <div id="layoutSidenav_content" class="mt-5">
         <main>
             <div class="container-fluid px-4">
+
+                {% include "Partials/Flash.html.twig" %}
+
                 <div class="d-flex justify-content-between">
                     <h3 class="text-black-50"><i class="fad fa-truck-moving"></i> MOTIF DE VOYAGE</h3>
-                    <a href="#" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un motif de voyage</a>
+                    <a href="{{ path("add-motif-voyage") }}" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un motif de voyage</a>
                 </div>
 
                 <table class="table table-bordered mt-5">
@@ -20,23 +23,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                    </tr>
+                    {% for listMotifVoyage in listMotifVoyages %}
+                        <tr>
+                            <th scope="row">{{ listMotifVoyage.id }}</th>
+                            <td>{{ listMotifVoyage.MotifVoyageValue }}</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
                 <div class="float-end">
                     <div class="btn-group">
-                        <a href="#" class="btn btn-success"><i class="fad fa-list-alt"></i> Exporter la liste</a>
+                        <a href="{{ path('print-motif-voyage') }}" target="_blank" class="btn btn-success"><i class="fad fa-print"></i> Imprimer la liste</a>
                         <a href="#" class="btn btn-danger"><i class="fad fa-trash-alt"></i> Supprimer tout</a>
                     </div>
                 </div>

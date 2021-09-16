@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Impression Cours de change{% endblock %}
+
+{% block body %}
+
+    <body onload="javascript:window.print()">
+        <div class="container mt-3">
+            <div class="text-center">
+                <img src="{{ asset("Assets/css/Logo-prochange.jpeg") }}" alt="Logo Prochange" width="300px">
+            </div>
+            <h3 class="text-center mt-3"><i class="fad fa-wallet"></i> Liste cours de change</h3>
+
+            <hr>
+
+                <table class="table table-bordered mt-4">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cours de change</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for PrintExchange in PrintExchanges%}
+                        <tr>
+                            <th scope="row">{{ PrintExchange.id }}</th>
+                            <td>{{ PrintExchange.ExchangeValue }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </body>
+
+{% endblock %}
