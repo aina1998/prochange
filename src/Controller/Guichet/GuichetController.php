@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GuichetController extends AbstractController
 {
     /**
-     * @Route("/", name="guichet")
+     * @Route("/guichet", name="guichet")
      */
     public function index(): Response
     {

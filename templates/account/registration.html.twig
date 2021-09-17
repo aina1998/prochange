@@ -1,0 +1,27 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Nouvelle utilisateur{% endblock %}
+
+{% block body %}
+
+    <div id="layoutSidenav_content" class="mt-5">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-black-50"><i class="fad fa-user-circle"></i> UTILISATEUR</h3>
+                    <a href="{{ path("list-user") }}" class="btn btn-dark">< Retour à la liste</a>
+                </div>
+                <div class="col-md-6 mt-5">
+                    {{ form_start(FormRegistration) }}
+                        {{ form_row(FormRegistration.pseudo)}}
+                        {{ form_row(FormRegistration.email)}}
+                        {{ form_row(FormRegistration.slug)}}
+                        {{ form_row(FormRegistration.hash)}}
+                        <button type="submit" class="btn btn-primary"><i class="fad fa-check"></i> Enregistrer</button>
+                    {{ form_end(FormRegistration) }}
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}
