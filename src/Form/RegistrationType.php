@@ -19,7 +19,8 @@ class RegistrationType extends AbstractType
                 'label' => "Nouveau nom d'utilisateur :",
                 'attr' => [
                     'placeholder' => "Nom d'utilisateur"
-                ]
+                ],
+                'required' => true
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Votre adresse email :',
@@ -27,14 +28,19 @@ class RegistrationType extends AbstractType
                     'placeholder' => "Adresse email"
                 ]
             ])
-            ->add('slug', TextType::class, [
-                'label' => 'Slug :'
-            ])
             ->add('hash', PasswordType::class, [
                 'label' => 'Nouveau mot de passe :',
                 'attr' => [
                     'placeholder' => "Nouveau mot de passe"
-                ]
+                ],
+                'required' => true
+            ])
+            ->add('passwordConfirm', PasswordType::class, [
+                'label' => "Confirmer le mot de passe :",
+                'attr' => [
+                    'placeholder' => "Confirmer le mot de passe"
+                ],
+                'required' => true
             ])
         ;
     }

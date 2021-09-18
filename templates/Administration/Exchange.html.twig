@@ -20,13 +20,17 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Cours de change</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for ListExchange in ListExchanges%}
                         <tr>
                             <th scope="row">{{ ListExchange.id }}</th>
-                            <td>{{ ListExchange.ExchangeValue }}</td>
+                            <th scope="row">{{ ListExchange.ExchangeValue }}</th>
+                            <th scope="row" class="text-center col-1">
+                                <a href="{{ path('delete-exchange', {'ExchangeValue' : ListExchange.ExchangeValue}) }}" class="btn btn-danger"><i class="fad fa-trash-alt"></i></a>
+                            </th>
                         </tr>
                     {% endfor %}
                     </tbody>

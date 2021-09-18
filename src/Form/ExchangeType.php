@@ -17,7 +17,8 @@ class ExchangeType extends AbstractType
                 'label' => 'Noouveau cour de change :',
                 'attr' => [
                     'placeholder' => '0000'
-                ]
+                ],
+                'required' => true
             ])
         ;
     }

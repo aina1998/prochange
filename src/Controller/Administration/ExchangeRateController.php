@@ -60,4 +60,17 @@ class ExchangeRateController extends AbstractController
             'FormExchange' => $formExchange->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/cours-de-change/{ExchangeValue}/supprimer", name="delete-exchange")
+     */
+    public function deleteExchange(Exchange $exchange, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($exchange);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Cour de change supprimer.");
+        return $this->redirectToRoute('exchange');
+    }
+
 }

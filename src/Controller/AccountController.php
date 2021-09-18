@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\EditUserType;
 use App\Form\RegistrationType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -66,6 +67,41 @@ class AccountController extends AbstractController
         return $this->render('account/registration.html.twig', [
             "FormRegistration" => $formUser->createView()
         ]);
+    }
+
+    /**
+     * @Route("Administration/utilisateur/{slug}/editer", name="edit-user")
+     * @return Response
+     */
+    public function editUser(User $user, Request $request, EntityManagerInterface $entityManager)
+    {
+        $formEditUser = $this->createForm(EditUserType::class, $user);
+        $formEditUser->handleRequest($request);
+
+        if ($formEditUser->isSubmitted() && $formEditUser->isValid()) {
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Modification de l'utilisateur enregistrer.");
+            return $this->redirectToRoute('list-user');
+        }
+
+        return $this->render('Administration/EditUser.html.twig', [
+            'editUser' => $user,
+            'formEditUser' => $formEditUser->createView()
+        ]);
+    }
+
+    /**
+     * @Route("Administration/utilisateur/{slug}/supprimer", name="delete-user")
+     */
+    public function deleteUser(User $user, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Suppression de l'utilisateur éffectuer.");
+        return $this->redirectToRoute('list-user');
     }
 
     /**

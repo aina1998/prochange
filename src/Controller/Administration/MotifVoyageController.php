@@ -62,4 +62,16 @@ class MotifVoyageController extends AbstractController
             'FormMotifVoyage' => $formMotifVoyage->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/motif-voyage/{MotifVoyageValue}/supprimer", name="delete-motif-voyage")
+     */
+    public function deleteTypeDocument(MotifVoyage $motifVoyage, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($motifVoyage);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Motif de voyage supprimmer avec succès.");
+        return $this->redirectToRoute('motif-voyage');
+    }
 }

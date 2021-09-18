@@ -17,7 +17,8 @@ class TvaType extends AbstractType
                 'label' => "Nouveau taux de valeur ajoutée",
                 'attr' => [
                     'placeholder' => "20"
-                ]
+                ],
+                'required' => true
             ])
         ;
     }

@@ -15,6 +15,7 @@ class DeviseType extends AbstractType
         $builder
             ->add('DeviseValue', CurrencyType::class, [
                 'label' => "Nouvelle devise :",
+                'required' =>true,
                 'attr' => [
                     'placeholder' => "MGA"
                 ]

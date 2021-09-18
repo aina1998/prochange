@@ -20,6 +20,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Type de document</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,9 @@
                         <tr>
                             <th scope="row">{{ listTypeDocument.id }}</th>
                             <td>{{ listTypeDocument.TypeDocumentValue }}</td>
+                            <td class="text-center col-2">
+                                <a href="{{ path('delete-type-document', {'TypeDocumentValue' : listTypeDocument.TypeDocumentValue}) }}" class="btn btn-danger"><i class="fad fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

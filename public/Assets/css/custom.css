@@ -16,6 +16,37 @@
 
 }
 
+@font-face {
+    font-family: 'nebula-hollow';
+    src: url('../fonts/nebula/nebula-hollow-webfont.woff2') format('woff2'),
+    url('../fonts/nebula/nebula-hollow-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nebula-regular';
+    src: url('../fonts/nebula/nebula-regular-webfont.woff2') format('woff2'),
+    url('../fonts/nebula/nebula-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'scratchy';
+    src: url('../fonts/scratchy/scratchy-webfont.woff2') format('woff2'),
+    url('../fonts/scratchy/scratchy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.text-admin {
+    font-family: nebula-regular;
+}
+
 body {
     font-family: made_evolve_sansthin;
 }
@@ -40,7 +71,12 @@ p, h1, h2, h3, h4, h5, h6, .btn {
     margin-top: 100px;
 }
 
+.titre-guichet {
+    font-family: nebula-regular;
+}
+
 .url{
+    font-family: nebula-regular;
     text-decoration: none;
     color: red;
     font-weight: bold;

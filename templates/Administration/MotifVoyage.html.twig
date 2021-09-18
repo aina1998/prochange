@@ -20,6 +20,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Motif de voyage</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,9 @@
                         <tr>
                             <th scope="row">{{ listMotifVoyage.id }}</th>
                             <td>{{ listMotifVoyage.MotifVoyageValue }}</td>
+                            <td class="text-center col-2">
+                                <a href="{{ path("delete-motif-voyage", {'MotifVoyageValue' : listMotifVoyage.MotifVoyageValue}) }}" class="btn btn-danger"><i class="fad fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

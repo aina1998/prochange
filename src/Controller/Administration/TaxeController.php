@@ -61,4 +61,16 @@ class TaxeController extends AbstractController
             'FormTva' => $formTva->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/taux-valeur-ajoutee/{TauxValue}/supprimer", name="delete-taxe")
+     */
+    public function deleteTypeDocument(Tva $tva, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($tva);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Taux de valeur ajoutée supprimmer avec succès.");
+        return $this->redirectToRoute('taxe');
+    }
 }

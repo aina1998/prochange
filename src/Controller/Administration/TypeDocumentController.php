@@ -61,4 +61,16 @@ class TypeDocumentController extends AbstractController
             'FormTypeDocument' => $formTypeDocument->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/type-document/{TypeDocumentValue}/supprimer", name="delete-type-document")
+     */
+    public function deleteTypeDocument(TypeDocument $typeDocument, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($typeDocument);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Type de document supprimmer avec succès.");
+        return $this->redirectToRoute('type-document');
+    }
 }

@@ -62,4 +62,16 @@ class DeviseController extends AbstractController
             'FormDevise' => $formDevise->createView()
         ]);
     }
+
+    /**
+     * @Route("/administration/devise/{DeviseValue}/supprimer", name="delete-devise")
+     */
+    public function deleteDevise(Devise $devise, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($devise);
+        $entityManager->flush();
+
+        $this->addFlash('success', "Devise supprimmer avec succès.");
+        return $this->redirectToRoute('devise');
+    }
 }

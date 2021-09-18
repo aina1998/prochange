@@ -20,6 +20,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Taux de valeur ajoutée</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,9 @@
                         <tr>
                             <td scope="row">{{ listTva.id }}</td>
                             <td scope="row">{{ listTva.TauxValue }} <i class="fad fa-percentage"></i></td>
+                            <td class="text-center col-2">
+                                <a href="{{ path("delete-taxe", {'TauxValue' : listTva.TauxValue}) }}" class="btn btn-danger"><i class="fad fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

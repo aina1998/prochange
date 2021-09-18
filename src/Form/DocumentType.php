@@ -17,7 +17,8 @@ class DocumentType extends AbstractType
                 'label' => "Nouveau type de document :",
                 'attr' => [
                     'placeholder' => "C.I.N"
-                ]
+                ],
+                'required' => true
             ])
         ;
     }

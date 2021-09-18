@@ -23,6 +23,7 @@
                         <th scope="col">Adresse e-mail</th>
                         <th scope="col">Slug</th>
                         <th scope="col">Date d'enregistrement</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,16 +33,15 @@
                             <td>{{ listUser.pseudo }}</td>
                             <td>{{ listUser.email }}</td>
                             <td>{{ listUser.slug }}</td>
-                            <td>Date</td>
+                            <td>{{ listUser.createdAt | date("d/m/Y") }}</td>
+                            <td class="text-center">
+                                <a href="{{ path('edit-user', {'slug' : listUser.slug}) }}" class="btn btn-warning"><i class="fad fa-user-edit"></i></a> -
+                                <a href="{{ path('delete-user', {'slug' : listUser.slug}) }}" class="btn btn-danger"><i class="fad fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <div class="float-end">
-                    <div class="btn-group">
-                        <a href="" class="btn btn-danger"><i class="fad fa-trash-alt"></i> Supprimer la liste</a>
-                    </div>
-                </div>
             </div>
         </main>
     </div>

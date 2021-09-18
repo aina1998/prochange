@@ -3,12 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"pseudo", "email"}, message="Pseudo déja enregistrer dans la base de données.")
  */
 class User implements UserInterface
 {
@@ -21,16 +25,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Ce champ est requis.")
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ est requis.")
+     * @Assert\Email(message="Veuillez saisir une adresse email valide.")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=4, minMessage="Le mot de passe est trop court.")
+     * @Assert\NotBlank(message="Ce champ est requis.")
      */
     private $hash;
 
@@ -45,6 +54,11 @@ class User implements UserInterface
     private $createdAt;
 
     /**
+     * @Assert\EqualTo(propertyPath="hash", message="Les deux mots de passe doit être identique.")
+     */
+    public $passwordConfirm;
+
+    /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
@@ -52,6 +66,11 @@ class User implements UserInterface
     {
         if (empty($this->createdAt)){
             $this->createdAt = new \DateTimeImmutable();
+        }
+
+        if (empty($this->slug)){
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->getUsername());
         }
     }
 
