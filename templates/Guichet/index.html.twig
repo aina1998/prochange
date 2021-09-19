@@ -6,9 +6,9 @@
 
     <div class="container mt-5">
         <h1 class="text-center titre-guichet"><i class="fad fa-home-alt"></i><br>Tableau de bord</h1>
-        <p class="text-center text-black-50">Compte de <span class="text-success text-break">Aina Fenomanitra</span></p>
+        <p class="text-center text-black-50">Compte de <span class="text-success text-break">{{ app.user }}</span></p>
         <div class="text-center">
-            <a href="#" class="btn btn-outline-danger"><i class="fad fa-sign-out-alt"></i> Déconnexion</a>
+            <a href="{{ path('account-logout') }}" class="btn btn-outline-danger"><i class="fad fa-sign-out-alt"></i> Déconnexion</a>
         </div>
         <hr>
     </div>

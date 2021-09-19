@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -59,6 +61,16 @@ class User implements UserInterface
     public $passwordConfirm;
 
     /**
+     * @ORM\ManyToMany(targetEntity=Roles::class, mappedBy="users")
+     */
+    private $userRole;
+
+    public function __construct()
+    {
+        $this->userRole = new ArrayCollection();
+    }
+
+    /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
@@ -72,6 +84,11 @@ class User implements UserInterface
             $slugify = new Slugify();
             $this->slug = $slugify->slugify($this->getUsername());
         }
+    }
+
+    public function __toString()
+    {
+        return $this->getPseudo();
     }
 
     public function getId(): ?int
@@ -129,7 +146,13 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = $this->userRole->map(function ($role){
+            return $role->getTitle();
+        })->toArray();
+
+        $roles[] = 'ROLE_USER';
+
+        return $roles;
     }
 
     public function getUsername()
@@ -160,6 +183,33 @@ class User implements UserInterface
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Roles[]
+     */
+    public function getUserRole(): Collection
+    {
+        return $this->userRole;
+    }
+
+    public function addUserRole(Roles $userRole): self
+    {
+        if (!$this->userRole->contains($userRole)) {
+            $this->userRole[] = $userRole;
+            $userRole->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserRole(Roles $userRole): self
+    {
+        if ($this->userRole->removeElement($userRole)) {
+            $userRole->removeUser($this);
+        }
 
         return $this;
     }

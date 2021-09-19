@@ -2,6 +2,7 @@
 
 namespace App\Controller\Guichet;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class SalesController extends AbstractController
 {
     /**
-     * @Route("/guichet/sales", name="sales")
+     * @Route("/guichet/ventes", name="sales")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function index(): Response
     {
