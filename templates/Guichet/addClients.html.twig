@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Client{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h1 class="text-center titre-guichet"><i class="fad fa-id-card"></i><br>Ajouter un client</h1>
+        <p class="text-center text-black-50">Compte de <span class="text-success text-break">Aina Fenomanitra</span></p>
+        <div class="text-center">
+            <a href="{{ path("guichet") }}" class="btn btn-outline-primary"><i class="fad fa-home-alt"></i> Tableau de bord</a>
+            <a href="{{ path('account-logout') }}" class="btn btn-outline-danger"><i class="fad fa-sign-out-alt"></i> Déconnexion</a>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container-fluid mt-lg-5">
+        <div class="float-end mb-3">
+            <div class="btn-group">
+                <a href="{{ path('clients') }}" class="btn btn-dark"><i class="fad fa-arrow-alt-circle-left"></i> Retour à la liste des clients</a>
+                <a href="#" class="btn btn-success"><i class="fad fa-print"></i> Imprimer le formulaire</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                {{ form_start(formClient) }}
+                {{ form_row(formClient.fullName) }}
+                {{ form_row(formClient.adresse) }}
+                {{ form_row(formClient.Documents) }}
+                {{ form_row(formClient.DocumentValue) }}
+                <button type="submit" class="btn btn-primary"><i class="fad fa-check"></i> Enregistrer</button>
+                {{ form_end(formClient) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

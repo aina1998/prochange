@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-between">
                     <h3 class="text-black-50"><i class="fad fa-id-card"></i> LISTES DES CLIENTS</h3>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-success"><i class="fad fa-list-alt"></i> Exporter la liste</a>
+                        <a href="#" class="btn btn-success"><i class="fad fa-print"></i> Imprimer la liste</a>
                         <a href="#" class="btn btn-danger"><i class="fad fa-trash-alt"></i> Supprimer tout</a>
                     </div>
                 </div>
@@ -19,22 +19,28 @@
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Cours de change</th>
+                        <th scope="col">Date d'enregistrement</th>
+                        <th scope="col">Nom complet</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Type de document</th>
+                        <th scope="col">Numero du document</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                    </tr>
+                    {% for listClient in listClients %}
+                        <tr>
+                            <th scope="row">{{ listClient.id }}</th>
+                            <th scope="row">{{ listClient.createdAt | date('d/m/Y') }}</th>
+                            <th scope="row">{{ listClient.fullName }}</th>
+                            <th scope="row">{{ listClient.adresse }}</th>
+                            <th scope="row">{{ listClient.documents }}</th>
+                            <th scope="row">{{ listClient.documentValue }}</th>
+                            <th scope="row" class="text-center">
+                                <a href="#" class="btn btn-outline-danger"><i class="fad fa-trash-alt"></i></a>
+                            </th>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

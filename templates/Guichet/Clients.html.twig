@@ -19,18 +19,19 @@
     <div class="container-fluid mt-lg-5">
         <div class="float-end mb-3">
             <div class="btn-group">
-                <a href="#" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un client</a>
-                <a href="#" class="btn btn-success"><i class="fad fa-list-alt"></i> Exporter la liste</a>
+                <a href="{{ path('add-clients') }}" class="btn btn-primary"><i class="fad fa-plus"></i> Ajouter un client</a>
+                <a href="#" class="btn btn-success"><i class="fad fa-print"></i> Imprimer la liste</a>
             </div>
         </div>
+
+            {% include "Partials/Flash.html.twig" %}
 
             <table class="table table-bordered mt-5">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Date d'enregistrement</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom complet</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Type de document</th>
                     <th scope="col">Numero du document</th>
@@ -38,14 +39,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                {% for listClient in listClients %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>12/11/1998</td>
-                    <td>RAMAHERISON</td>
-                    <td>Aina Fenomanitra</td>
-                    <td>Madagascar</td>
-                    <td>C.I.N</td>
-                    <td>101 211 240 057</td>
+                    <th scope="row">{{ listClient.id }}</th>
+                    <td>{{ listClient.createdAt | date('d/m/Y') }}</td>
+                    <td>{{ listClient.fullName }}</td>
+                    <td>{{ listClient.adresse }}</td>
+                    <td>{{ listClient.documents }}</td>
+                    <td>{{ listClient.documentValue }}</td>
                     <td class="text-center">
                         <div class="btn-group">
                             <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
@@ -53,36 +54,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>12/11/1998</td>
-                    <td>RAMAHERISON</td>
-                    <td>Aina Fenomanitra</td>
-                    <td>Madagascar</td>
-                    <td>C.I.N</td>
-                    <td>101 211 240 057</td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
-                            <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>12/11/1998</td>
-                    <td>RAMAHERISON</td>
-                    <td>Aina Fenomanitra</td>
-                    <td>Madagascar</td>
-                    <td>C.I.N</td>
-                    <td>101 211 240 057</td>
-                    <td class="text-center">
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
-                            <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
-                        </div>
-                    </td>
-                </tr>
+                {% endfor %}
                 </tbody>
             </table>
     </div>
