@@ -26,6 +26,11 @@ class Exchange
      */
     private $ExchangeValue;
 
+    public function __toString() : string
+    {
+        return $this->ExchangeValue;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

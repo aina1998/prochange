@@ -73,6 +73,11 @@ class Clients
         }
     }
 
+    public function __toString()
+    {
+        return $this->fullName;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

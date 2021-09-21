@@ -26,6 +26,11 @@ class Devise
      */
     private $DeviseValue;
 
+    public function __toString()
+    {
+        return $this->DeviseValue;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

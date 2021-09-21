@@ -26,6 +26,11 @@ class Tva
      */
     private $TauxValue;
 
+    public function __toString() : string
+    {
+        return $this->TauxValue;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

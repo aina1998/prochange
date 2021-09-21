@@ -2,6 +2,10 @@
 
 namespace App\Controller\Guichet;
 
+use App\Entity\Achats;
+use App\Entity\Clients;
+use App\Form\AchatsType;
+use App\Repository\ClientsRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
