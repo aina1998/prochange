@@ -49,7 +49,7 @@
                     <td>{{ listClient.documentValue }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
+                            <a href="{{ path('add-buy', {'slug' : listClient.slug}) }}" class="btn btn-success"><i class="fad fa-money-check-alt"></i> Achat</a>
                             <a href="#" class="btn btn-warning"><i class="fad fa-money-bill-alt"></i> Vente</a>
                         </div>
                     </td>
